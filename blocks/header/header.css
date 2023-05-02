@@ -1,0 +1,21 @@
+.header {
+  padding-top: 45px;
+  width: calc(100% - 200px * 2);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 41px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .header {
+    padding-top: 28px;
+    gap: 32px;
+  }
+}

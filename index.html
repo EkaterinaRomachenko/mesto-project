@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Проект об удивильных местах мира">
+  <meta name="keywords" content="HTML5, CSS">
+  <meta name="author" content="Екатерина Ромащенко">
+  <link rel="stylesheet" href="./pages/index.css">
+  <title>Место</title>
+</head>
+<body class="page">
+  <header class="header">
+    <img src="./images/header-logo.svg" alt="Логотип проекта Место" class="header__logo">
+    <div class="header__line"></div>
+  </header>
+  <main class="content">
+    <section class="profile">
+      <img src="./images/Avatar.jpg" alt="Аватарка" class="profile__avatar">
+      <div class="profile__info">
+        <div class="profile__main-text">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+        <button class="profile__edit-button" type="button"></button>
+      </div>
+      <button class="profile__add-button" type="button"></button>
+    </section>
+    <section class="elements">
+      <article class="element">
+        <img src="./images/Baikal.jpg" alt="Озеро Байкал" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Озеро Байкал</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Altay.jpg" alt="Горный Алтай" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Горный Алтай</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/grand-canyon-2.jpg" alt="Гранд-Каньон" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Гранд-Каньон</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/lvinaya-krepost.jpg" alt="Львиная Скала" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Львиная Скала</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Niagara-falls.jpg" alt="Ниагаркий водопад" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Ниагарский водопад</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Elbrus.jpg" alt="Эльбрус" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Гора Эльбрус</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/Мон-Сен-Мишель2.jpg" alt="Мон-Сен-Мишель" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Мон-Сен-Мишель</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/rice.jpg" alt="Му Кан Чай" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Му Кан Чай</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+      <article class="element">
+        <img src="./images/egypt.jpg" alt="Пирамида Хеопса" class="element__img">
+        <div class="element__content">
+          <h2 class="element__title">Пирамида Хеопса</h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2020 Mesto Russia </p>
+  </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <button type="button" class="popup__icon-close"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form action="#" class="popup__form">
+        <div class="popup__form-info">
+          <input type="text" class="popup__input" placeholder="Жак-Ив Кусто">
+          <input type="text" class="popup__input" placeholder="Исследователь океана">
+        </div>
+        <button type="button" class="popup__submit-button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
