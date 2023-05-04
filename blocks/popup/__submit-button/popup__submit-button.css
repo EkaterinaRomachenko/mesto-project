@@ -10,6 +10,7 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  border: 0;
 }
 
 .popup__submit-button:hover {
@@ -19,7 +20,7 @@
 }
 
 
-@media screen and (max-width:320px) {
+@media screen and (max-width: 600px) {
   .popup__submit-button {
     width: 238px;
     height: 46px;
