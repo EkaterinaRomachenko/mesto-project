@@ -1,9 +1,9 @@
 .header {
-  padding-top: 45px;
+  padding: 45px 0 37px;
   max-width: 880px;
-  min-height: 74px;
   margin: 0 auto;
-  border-bottom: 1px solid rgb(84, 84, 84, 0.7);;
+  border-bottom: 1px solid rgb(84, 84, 84, 0.7);
+  text-align: left;
 }
 
 @media screen and (max-width: 1024px) {
@@ -14,7 +14,6 @@
 
 @media screen and (max-width: 880px) {
   .header {
-    padding-top: 28px;
-    min-height: 0;
+    padding: 28px 0 26px;
   }
 }

@@ -4,32 +4,20 @@
   line-height: 22px;
   margin: 0;
   padding: 0;
-  max-width: 336px;
+  max-width: 300px;
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.profile__subtitle:first-child {
-  margin: 0;
-}
 
 
-
-@media screen and (max-width: 699px) {
-  .profile__subtitle {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-}
-
-
-@media screen and (max-width: 550px)  {
+@media screen and (max-width: 700px)  {
   .profile__subtitle {
     font-size: 14px;
     line-height: 17px;
-    max-width: 282px;
+    max-width: 189px;
+    text-align: center;
   }
 }
