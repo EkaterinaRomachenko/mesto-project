@@ -33,8 +33,8 @@ function formSubmitHandler (evt) {
   nameValue = nameInput.value;
   jobValue = jobInput.value;
 
-  let profTitle = document.querySelector('.profile__title');
-  let profSubtitle = document.querySelector('.profile__subtitle');
+  const profTitle = document.querySelector('.profile__title');
+  const profSubtitle = document.querySelector('.profile__subtitle');
 
   profTitle.textContent = nameValue;
   profSubtitle.textContent = jobValue;
@@ -120,7 +120,7 @@ function placeCardEl(element){
     placeRemoveButton.closest('.place').remove()
   })
 
-  // открытие попапа с картинкой 
+  // открытие попапа с картинкой
 const popupImage = document.querySelector('.popup_image');
 const ImageCloseButton = document.querySelector('.popup__icon-close_image');
 const popupImageElement = cardPlace.querySelector('.place__img');
