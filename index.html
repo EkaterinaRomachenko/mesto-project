@@ -26,87 +26,54 @@
       </div>
       <button class="profile__add-button" aria-label="Добавить" type="button"></button>
     </section>
-    <section class="elements">
-      <article class="element">
-        <img src="./images/Baikal.jpg" alt="Озеро Байкал" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Озеро Байкал</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/Altay.jpg" alt="Горный Алтай" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Горный Алтай</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/grand-canyon-2.jpg" alt="Гранд-Каньон" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Гранд-Каньон</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/lvinaya-krepost.jpg" alt="Львиная Скала" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Львиная Скала</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/Niagara-falls.jpg" alt="Ниагаркий водопад" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Ниагарский водопад</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/Elbrus.jpg" alt="Эльбрус" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Гора Эльбрус</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/Мон-Сен-Мишель2.jpg" alt="Мон-Сен-Мишель" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Мон-Сен-Мишель</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/rice.jpg" alt="Му Кан Чай" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Му Кан Чай</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-      <article class="element">
-        <img src="./images/egypt.jpg" alt="Пирамида Хеопса" class="element__img">
-        <div class="element__content">
-          <h2 class="element__title">Пирамида Хеопса</h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-      </article>
-    </section>
+    <section class="places"></section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2020 Mesto Russia </p>
   </footer>
-  <div class="popup popup_opened">
+  <div class="popup popup_profile">
     <div class="popup__container">
-      <button type="button" class="popup__icon-close"></button>
+      <button type="button" class="popup__icon-close popup__icon-close_profile"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form action="#" name="popup-form" class="popup__form">
+      <form action="#" name="form-profile" class="popup__form popup__form-profile">
         <div class="popup__form-info">
-          <input type="text" name="name" id="name" class="popup__input" placeholder="Имя">
-          <input type="text" name="info" id="info" class="popup__input" placeholder="Ваш род деятельности">
+          <input type="text" name="name" id="input-name" class="popup__input" placeholder="Имя">
+          <input type="text" name="info" id="input-info" class="popup__input" placeholder="Ваш род деятельности">
         </div>
         <button type="submit" value="Сохранить" class="popup__submit-button">Сохранить</button>
       </form>
     </div>
   </div>
+  <div class="popup popup_place">
+    <div class="popup__container">
+      <button type="button" class="popup__icon-close popup__icon-close_place"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form action="#" name="form-place" class="popup__form popup__form-place">
+        <div class="popup__form-info">
+          <input type="text" name="title" id="input-title" class="popup__input" placeholder="Название">
+          <input type="url" name="link" id="input-link" class="popup__input" placeholder="Ссылка на картинку">
+        </div>
+        <button type="submit" value="Добавить" class="popup__submit-button">Сохранить</button>
+      </form>
+    </div>
+  </div>
+  <div class="popup popup_image">
+    <div class="popup__container-image">
+      <button type="button" class="popup__icon-close popup__icon-close_image"></button>
+      <img src="" alt="" class="popup__image">
+      <h3 class="popup__image-title"></h3>
+    </div>
+  </div>
+  <template id="place-template">
+    <article class="place">
+      <img alt="" class="place__img" src="#">
+      <button class="place__remove-button" type="button"></button>
+      <div class="place__content">
+        <h2 class="place__title"></h2>
+        <button class="place__like-button" type="button"></button>
+      </div>
+    </article>
+  </template>
+  <script src="./pages/index.js"></script>
 </body>
 </html>
