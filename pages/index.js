@@ -1,3 +1,33 @@
+
+// попапы
+const popupProfile = document.querySelector('.popup_profile');
+const popupPlace = document.querySelector('.popup_place');
+const popupImage = document.querySelector('.popup_image');
+const popupImageTitle = document.querySelector('.popup__image-title')
+const popupImagePicture = document.querySelector('.popup__image')
+// формы
+const profileForm = document.querySelector('.popup__form-profile');
+const placeForm = document.querySelector('.popup__form-place');
+// инпуты
+const nameInput = document.querySelector('#input-name');
+const jobInput = document.querySelector('#input-info');
+const titleInput = document.querySelector('#input-title');
+const linkInput = document.querySelector('#input-link');
+// кнопки
+const profileEditButton = document.querySelector('.profile__edit-button');
+const profileCloseButton = document.querySelector('.popup__icon-close_profile');
+const profileAddButton = document.querySelector('.profile__add-button');
+const placeCloseButton = document.querySelector('.popup__icon-close_place');
+const imageCloseButton = document.querySelector('.popup__icon-close_image');
+// данные профиля
+const profTitle = document.querySelector('.profile__title');
+const profSubtitle = document.querySelector('.profile__subtitle');
+// карточки
+const placeContainer = document.querySelector('.places');
+const placeTemplate = document.querySelector('#place-template').content;
+
+
+
 //  Открытие и закрытие popup
 function openPopup(popup){
   popup.classList.add('popup_opened')
@@ -8,49 +38,43 @@ function closePopup(popup){
 }
 
 // открытие и закрытие профиля
-const editButton = document.querySelector('.profile__edit-button');
-const popupProfile = document.querySelector('.popup_profile');
-const profileCloseButton = document.querySelector('.popup__icon-close_profile');
-
-editButton.addEventListener('click',function(){
+profileEditButton.addEventListener('click',function(){
   openPopup(popupProfile)
+  fillProfileInputs()
 })
 
 profileCloseButton.addEventListener('click',function(){
   closePopup(popupProfile)
 })
 
+// закрытие попапа с картинкой
+imageCloseButton.addEventListener('click', function(){
+  closePopup(popupImage)
+})
+
+function fillProfileInputs(){
+  nameInput.value = profTitle.textContent;
+  jobInput.value = profSubtitle.textContent;
+}
 
 // Редактирование имени и информации о себе
-
-const profileForm = document.querySelector('.popup__form-profile');
-const nameInput = document.querySelector('#input-name');
-const jobInput = document.querySelector('#input-info');
-
-function formSubmitHandler (evt) {
+function handlerProfileFormSubmit (evt) {
   evt.preventDefault();
   // значение импутов
   nameValue = nameInput.value;
   jobValue = jobInput.value;
 
-  const profTitle = document.querySelector('.profile__title');
-  const profSubtitle = document.querySelector('.profile__subtitle');
-
   profTitle.textContent = nameValue;
   profSubtitle.textContent = jobValue;
+
   // закрытие кнопка сохранить
   closePopup(popupProfile)
 }
-profileForm.addEventListener('submit', formSubmitHandler);
-
+profileForm.addEventListener('submit', handlerProfileFormSubmit);
 
 
 // Форма добавления карточки (открытие и закрытие)
-const popupPlace = document.querySelector('.popup_place');
-const addButton = document.querySelector('.profile__add-button');
-const placeCloseButton = document.querySelector('.popup__icon-close_place');
-
-addButton.addEventListener('click', function(){
+profileAddButton.addEventListener('click', function(){
   openPopup(popupPlace)
 })
 
@@ -58,12 +82,9 @@ placeCloseButton.addEventListener('click', function(){
   closePopup(popupPlace)
 })
 
+
+
 //Шесть карточек «из коробки»
-
-const placeContainer = document.querySelector('.places');
-const placeTemplate = document.querySelector('#place-template').content;
-
-
 const initialCards = [
   {
     name: 'Озеро Байкал',
@@ -103,16 +124,14 @@ const initialCards = [
   }
   ];
 
-function placeCardEl(element){
+function createCardEl(element){
   const cardPlace = placeTemplate.querySelector('.place').cloneNode(true);
 
   cardPlace.querySelector('.place__title').textContent = element.name
   cardPlace.querySelector('.place__img').src = element.link
 
   // лайк карточкам
-  cardPlace.querySelector('.place__like-button').addEventListener('click',function(event){
-  event.target.classList.toggle('place__like-button_active');
-  })
+  cardPlace.querySelector('.place__like-button').addEventListener('click', liceCard);
 
   // удаление карточки
   const placeRemoveButton = cardPlace.querySelector('.place__remove-button');
@@ -121,41 +140,32 @@ function placeCardEl(element){
   })
 
   // открытие попапа с картинкой
-const popupImage = document.querySelector('.popup_image');
-const ImageCloseButton = document.querySelector('.popup__icon-close_image');
+
 const popupImageElement = cardPlace.querySelector('.place__img');
-
 popupImageElement.addEventListener('click', function(){
-  popupImage.querySelector('.popup__image-title').textContent = element.name
-  const picture = popupImage.querySelector('.popup__image')
 
-  picture.src = element.link
-  picture.alt = element.name
+  popupImageTitle.textContent = element.name
+  popupImagePicture.src = element.link
+  popupImagePicture.alt = element.name
 
   openPopup(popupImage)
 })
 
-  ImageCloseButton.addEventListener('click', function(){
-    closePopup(popupImage)
-  })
-
   return cardPlace
 }
 
+// лайк кнопка
+function liceCard(evt) {
+  evt.target.classList.toggle('place__like-button_active');
+}
 
 initialCards.forEach(function(cardPlace){
-  const placeElement = placeCardEl(cardPlace)
+  const placeElement = createCardEl(cardPlace)
   placeContainer.append(placeElement)
 })
 
 //Добавление новой карточки (+ кнопка сохранить)
-
-const placeForm = document.querySelector('.popup__form-place');
-const titleInput = document.querySelector('#input-title');
-const linkInput = document.querySelector('#input-link');
-
-
-function formSubmitPlaceHandler (evt) {
+function handlerFormSubmitPlace(evt) {
   evt.preventDefault();
 // значение инпутов
  const newCardPlace = {
@@ -163,11 +173,14 @@ function formSubmitPlaceHandler (evt) {
   link: linkInput.value
  }
 
-  const placeElement = placeCardEl(newCardPlace)
+  const placeElement = createCardEl(newCardPlace)
   // новая карточка в начало
   placeContainer.prepend(placeElement)
+
+// очищение формы карточки
+evt.target.reset();
 
   // закрыть кнопку сохранить
   closePopup(popupPlace)
 }
-placeForm.addEventListener('submit', formSubmitPlaceHandler)
+placeForm.addEventListener('submit', handlerFormSubmitPlace)
