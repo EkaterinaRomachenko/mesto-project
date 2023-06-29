@@ -1,6 +1,5 @@
-.popup__form {
+.form__input-wrapper{
   display: flex;
   flex-direction: column;
+  margin: 0 0 5px;
 }
-
-

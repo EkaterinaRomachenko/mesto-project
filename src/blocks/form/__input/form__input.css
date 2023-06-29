@@ -1,23 +1,24 @@
-.popup__input{
+.form__input{
   border: none;
   box-sizing: border-box;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   background-color: transparent;
-  padding: 0 0 10px;
+  padding: 0 0 10px 0;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   color: #000000;
   font-family: inherit;
+  position: relative;
 }
 
 
 
-.popup__input:focus {
+.form__input:focus {
   outline-color: rgba(0, 0, 0, 0.2);;
 }
 
-.popup__input::-webkit-input-placeholder {
+.form__input::-webkit-input-placeholder {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -25,7 +26,7 @@
   font-family: inherit;
 }
 
-.popup__input::-moz-placeholder {
+.form__input::-moz-placeholder {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
@@ -33,7 +34,7 @@
   font-family: inherit;
 }
 
-.popup__input::-ms-input-placeholder {
+.form__input::-ms-input-placeholder {
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;

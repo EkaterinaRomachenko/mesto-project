@@ -1,0 +1,14 @@
+.form__input-error {
+  color:#FF0000;
+  font-size: 12px;
+  line-height: 15px;
+  padding-bottom: 13px;
+  padding-top: 5px;
+  display: block;
+  min-height: 30px;
+  box-sizing: border-box;
+}
+
+.form__input-error:last-child{
+  padding-bottom: 0;
+}

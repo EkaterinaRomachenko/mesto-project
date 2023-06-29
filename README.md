@@ -9,5 +9,8 @@
 3. Grid-layout.
 4. Позиционирование блоков и элементов.
 5. Figma.
+6. JS
+7. Сборка Webpack
+8. Валидация форм
 
 [Ссылка на проект:](https://ekaterinaromachenko.github.io/mesto-project/index.html)
