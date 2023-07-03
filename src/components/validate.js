@@ -43,7 +43,7 @@ const setEventListeners = (
   errorClass
 ) => {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector))
-  const buttonElement = formElement.querySelector(submitButtonSelector)
+  const buttonElement = formElement.closest('form').querySelector(submitButtonSelector)
 
   toggleButtonState(inputList, buttonElement, inactiveButtonClass)
 
@@ -76,13 +76,18 @@ export function enableValidation({
   })
 }
 
+
 // Функция смены кнопки
 const toggleButtonState = (inputList,buttonElement,inactiveButtonClass) => {
   if(hasInvalidInput(inputList)){
-    buttonElement.classList.add(inactiveButtonClass)
-    buttonElement.setAttribute('disabled', '')
+    disabledSubmitButton(buttonElement,inactiveButtonClass)
   }else{
+    buttonElement.disabled = false
     buttonElement.classList.remove(inactiveButtonClass)
-    buttonElement.removeAttribute('disabled', '')
   }
+}
+
+export function disabledSubmitButton (btn, inactiveButtonClass) {
+  btn.disabled = true
+  btn.classList.add(inactiveButtonClass)
 }

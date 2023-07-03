@@ -18,7 +18,7 @@ export const profileCloseButton = document.querySelector('.popup__icon-close_pro
 export const profileAddButton = document.querySelector('.profile__add-button');
 export const placeCloseButton = document.querySelector('.popup__icon-close_place');
 export const imageCloseButton = document.querySelector('.popup__icon-close_image');
-export const formSubmitButton = document.querySelector('.form__submit-button', placeForm)
+export const formSubmitButton = placeForm.querySelector('.form__submit-button')
 // данные профиля
 export const profTitle = document.querySelector('.profile__title');
 export const profSubtitle = document.querySelector('.profile__subtitle');

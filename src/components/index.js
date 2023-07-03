@@ -1,6 +1,6 @@
 import '../styles/index.css'
 import {openPopup,editPopup,closePopup} from './modal.js'
-import{enableValidation} from './validate.js'
+import{enableValidation,disabledSubmitButton} from './validate.js'
 import {createCardPlace} from './card.js'
 import {
   initialCards,
@@ -23,20 +23,9 @@ import {
   titleInput,
   linkInput,
   popupImageTitle,
-  popupImagePicture}
+  popupImagePicture,
+  formSubmitButton}
   from './utils.js'
-
-// устанавливаем значение инпутов
-fillProfileInputs({
-  name : profTitle.textContent,
-  job : profSubtitle.textContent
-})
-
-// Уравниваем новые значение имени, описания с введенными
-function fillProfileInputs({ name, job }) {
-  nameInput.value = name
-  jobInput.value = job
-}
 
 
 // включение валидации вызовом enableValidation
@@ -78,7 +67,10 @@ editPopup({
   elClose: placeCloseButton,
   form: placeForm,
   popup: popupPlace,
-  onSubmit: addNewCardPlace
+  onSubmit: addNewCardPlace,
+  onOpen: function(){
+    disabledSubmitButton(formSubmitButton, 'form__submit-button_inactive')
+  }
 })
 
 // Добавляем карточек на страницу при загрузке страницы
@@ -111,6 +103,17 @@ export function openImage(element) {
   popupImagePicture.src = element.link
   popupImagePicture.alt = element.name
   openPopup(popupImage)
+}
+// устанавливаем значение инпутов
+fillProfileInputs({
+  name : profTitle.textContent,
+  job : profSubtitle.textContent
+})
+
+// Уравниваем новые значение имени, описания с введенными
+function fillProfileInputs({ name, job }) {
+  nameInput.value = name
+  jobInput.value = job
 }
 
 // Меняем значение value у input
