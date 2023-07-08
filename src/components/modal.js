@@ -1,6 +1,7 @@
 import {
   popupOpenedSelector,
-  popupContainerImage}
+  popupContainerImage,
+  }
   from './utils.js'
 
 // Открытие и закрытие popup
@@ -40,6 +41,7 @@ export function editPopup({
   // Подключаем событие закрытия попапа
   elClose.addEventListener('click', function () {
       closePopup(popup)
+
   })
 }
 

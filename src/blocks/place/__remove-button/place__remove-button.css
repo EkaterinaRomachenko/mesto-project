@@ -8,6 +8,7 @@
   width: 18px;
   height: 19px;
   border: none;
+  display: none;
 }
 
 .place__remove-button:hover {
