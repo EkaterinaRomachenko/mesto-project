@@ -9,6 +9,10 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EkaterinaRomachenko/mesto-project.git"
+  },
   "author": "Ekaterina Romashchenko",
   "license": "ISC",
   "devDependencies": {
