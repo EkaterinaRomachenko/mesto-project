@@ -12,6 +12,6 @@
 6. JS
 7. Сборка Webpack
 8. Валидация форм
-9. Работа с сервиром 
+9. Работа с сервиром
 
-[Ссылка на проект:](https://ekaterinaromachenko.github.io/mesto-project/)
+[Ссылка на проект:](https://ekaterinaromachenko.github.io/mesto-project/index.html)
