@@ -14,4 +14,4 @@
 8. Валидация форм
 9. Работа с сервиром
 
-[Ссылка на проект:](https://ekaterinaromachenko.github.io/mesto-project/index.html)
+[Ссылка на проект:](https://ekaterinaromachenko.github.io/mesto-project)
