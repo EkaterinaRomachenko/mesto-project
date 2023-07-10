@@ -39,7 +39,7 @@ export const avatarCloseButton = document.querySelector('.popup__icon-close_avat
 
 
 // кнопка сохранить (попап)
-export const formSubmitButton = placeForm.querySelector('.form__submit-button')
+export const formSubmitButtonPlace = placeForm.querySelector('.form__submit-button')
 export const formSubmitButtonAvatar = avatarForm.querySelector('.form__submit-button')
 export const formSubmitButtonProfile = profileForm.querySelector('.form__submit-button')
 

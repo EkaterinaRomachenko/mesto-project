@@ -1,6 +1,6 @@
 import {
   popupOpenedSelector,
-  popupContainerImage,
+  popupContainerImage
   }
   from './utils.js'
 
@@ -11,6 +11,7 @@ export function openPopup(popup){
   document.addEventListener('keydown', keyHandlerEsc)
 }
 
+
 export function closePopup(popup){
   popup.classList.remove(popupOpenedSelector)
   popup.removeEventListener('click', keyHandlerOverlay)
@@ -20,11 +21,13 @@ export function closePopup(popup){
 export function editPopup({
   elOpen,
   elClose,
+  elSubmit,
   form,
   popup,
   onSubmit,
   onOpen
-}) {
+})
+{
   // Если есть элемент открытия попапа, подключаем событие клика
   elOpen && elOpen.addEventListener('click', function () {
       openPopup(popup)
@@ -34,14 +37,22 @@ export function editPopup({
   // Если есть в попапе форма, подключаем слушатель ее отправки
   form && form.addEventListener('submit', function (evt) {
       evt.preventDefault()
+      const btnText = elSubmit ? elSubmit.textContent : ''
+      if (btnText) {
+        elSubmit.textContent = 'Сохранение...'
+      }
       onSubmit && onSubmit(evt)
-      closePopup(popup)
+      .catch(err => console.log(`Ошибка.....: ${err}`))
+      .finally(() => {
+        if (btnText) {
+          elSubmit.textContent = btnText
+        }
+      })
   })
 
   // Подключаем событие закрытия попапа
   elClose.addEventListener('click', function () {
       closePopup(popup)
-
   })
 }
 
@@ -59,4 +70,3 @@ export function  keyHandlerEsc(evt) {
 
   }
 }
-

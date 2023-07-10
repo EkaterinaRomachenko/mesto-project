@@ -1,24 +1,24 @@
-
-
-export const config = {
+ const config = {
   baseUrl: 'https://nomoreparties.co/v1/plus-cohort-26',
   headers: {
     authorization: 'dabe7799-e763-45ae-be1f-3576699b59b0',
     'Content-Type': 'application/json'
   }
 }
+function getResponseData(res) {
+    if (!res.ok) {
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+    return res.json();
+ }
+
+
 // инициализация карточек
 export function getCards(){
   return fetch(`${config.baseUrl}/cards`, {
   headers: config.headers
 })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    // если ошибка, отклоняем промис
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(res => {return getResponseData(res)})
 }
 
 // инициализация  редактирование профиля
@@ -26,13 +26,7 @@ export function getMyProfile(){
   return fetch(`${config.baseUrl}/users/me`, {
   headers: config.headers
 })
- .then(res => {
-   if (res.ok) {
-     return res.json();
-   }
-  // если ошибка, отклоняем промис
-   return Promise.reject(`Ошибка: ${res.status}`);
-  })
+ .then(res => {return getResponseData(res)})
 }
 
 
@@ -42,13 +36,7 @@ export function editProfile ({ name, about }) {
     headers: config.headers,
     body: JSON.stringify({ name, about })
   })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    // если ошибка, отклоняем промис
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(res => {return getResponseData(res)})
 }
 
 export function addNewCard ({ name, link }) {
@@ -57,13 +45,7 @@ export function addNewCard ({ name, link }) {
     headers: config.headers,
     body: JSON.stringify({ name, link })
   })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    // если ошибка, отклоняем промис
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(res => {return getResponseData(res)})
 }
 
 export function deleteCard({id}){
@@ -71,13 +53,7 @@ export function deleteCard({id}){
     headers: config.headers,
     method: 'DELETE'
   })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    // если ошибка, отклоняем промис
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(res => {return getResponseData(res)})
 }
 
 export function cardLikes({id,isLikes}){
@@ -85,13 +61,7 @@ export function cardLikes({id,isLikes}){
     method: isLikes ? 'DELETE' : 'PUT',
     headers: config.headers,
   })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    // если ошибка, отклоняем промис
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(res => {return getResponseData(res)})
 }
 
 export function editAvatar({avatar}){
@@ -100,11 +70,5 @@ export function editAvatar({avatar}){
     headers: config.headers,
     body: JSON.stringify({ avatar })
   })
-  .then(res => {
-    if (res.ok) {
-      return res.json();
-    }
-    // если ошибка, отклоняем промис
-    return Promise.reject(`Ошибка: ${res.status}`);
-  })
+  .then(res => {return getResponseData(res)})
 }

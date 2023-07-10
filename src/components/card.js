@@ -26,7 +26,6 @@ export function createCardPlace({myUserId,element, tmpl, byClick,byLikes,byDelet
   image.alt = element.name
   likesEl.textContent = element.likes.length
 
-
   if(isLikes(element.likes,myUserId)){
    btnLike.classList.add(placeBtnLikeActiveSelector)
   } else {
@@ -37,21 +36,23 @@ export function createCardPlace({myUserId,element, tmpl, byClick,byLikes,byDelet
   // Добавляем лайк к карточке
   btnLike.addEventListener('click', function (e) {
   const likeCard = isLikes(element.likes, myUserId)
-  byLikes({ id: element._id, isLikes:likeCard })
+  byLikes({ id: element._id,isLikes:likeCard})
   .then((res) => {
     e.target.classList.toggle(placeBtnLikeActiveSelector)
     likesEl.textContent =res.likes.length
     element.likes = res.likes
   })
+  .catch(err => console.log(`Ошибка.....: ${err}`))
 })
 
-  if (myUserId === element.owner._id) {
-    // Слушатель удаления карточки с страницы
-    placeRemoveButton.addEventListener('click', function () {
-      byDelete({ id: element._id })
-        .then(() => {
-          placeRemoveButton.closest(placeSelector).remove()
-        })
+if (myUserId === element.owner._id) {
+  // Слушатель удаления карточки с страницы
+  placeRemoveButton.addEventListener('click', function () {
+    byDelete({ id: element._id })
+      .then(() => {
+        placeRemoveButton.closest(placeSelector).remove()
+      })
+      .catch(err => console.log(`Ошибка, невозможно удалить карточку: ${err}`))
     })
     // Показываем кнопку удаления
     placeRemoveButton.classList.add('show')
